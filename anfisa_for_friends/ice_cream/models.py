@@ -27,7 +27,9 @@ class Topping(PublishedModel):
         return self.title
     
 class Wrapper(PublishedModel):
-    title = models.CharField(max_length=256, verbose_name='Название')
+    title = models.CharField(max_length=256, verbose_name='Название',
+    help_text='Уникальное название обёртки, не более 256 символов'
+    )
 
     class Meta:
         verbose_name = 'обертка'
@@ -45,7 +47,7 @@ class IceCream(PublishedModel):
         related_name='ice_cream',
         null=True,
         blank=True,
-        verbose_name='Обертка',
+        verbose_name='Обёртка',
     )
     category = models.ForeignKey(
         Category,
@@ -54,7 +56,7 @@ class IceCream(PublishedModel):
         verbose_name='Категория',
     )
     toppings = models.ManyToManyField(Topping, verbose_name='Топпинги',)
-    is_on_main = models.BooleanField(default=False)
+    is_on_main = models.BooleanField(default=False, verbose_name='На главную')
 
 
     class Meta:
