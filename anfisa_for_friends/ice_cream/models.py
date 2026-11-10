@@ -25,7 +25,7 @@ class Topping(PublishedModel):
 
     def __str__(self):
         return self.title
-    
+
 class Wrapper(PublishedModel):
     title = models.CharField(max_length=256, verbose_name='Название',
     help_text='Уникальное название обёртки, не более 256 символов'
